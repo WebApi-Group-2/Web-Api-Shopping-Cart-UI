@@ -64,7 +64,11 @@ class itemQtyEdit extends Component {
         }
         else
         {
-          const tokenString = sessionStorage.getItem('token');
+          const re = /^[0-9\b]+$/;
+          if(re.test(this.state.itemqty))
+          {
+
+            const tokenString = sessionStorage.getItem('token');
         const userToken = JSON.parse(tokenString);
     
         const item = {Token:userToken, qty: this.state.itemqty,unitprice:this.state.unitprice};
@@ -80,6 +84,14 @@ class itemQtyEdit extends Component {
       });
     
         }
+
+        else{
+
+          alert("Please add Numaric values as Qty");
+        }
+
+          }
+          
         
       }
 
