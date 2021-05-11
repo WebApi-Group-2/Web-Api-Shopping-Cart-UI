@@ -8,6 +8,7 @@ class customerItemlist extends Component {
 
      render() {
         var handeleToUpdate = this.props.handleupdate;
+        var viewmore1 = this.props.viewmore; 
 
         return(
            
@@ -23,7 +24,7 @@ class customerItemlist extends Component {
 
   </ul>
   <div className="card-body">
-    <button className='btn btn-success'>View More</button> {' '}
+    <button className='btn btn-success' onClick={()=>viewmore1(this.props.id)}>View More</button> {' '}
     <button className='btn btn-primary' onClick={()=>handeleToUpdate(this.props.id)}>Add to Cart</button>
  
   </div>
