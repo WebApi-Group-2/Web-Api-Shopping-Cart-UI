@@ -14,9 +14,9 @@ class cartitems extends Component {
       
         
    
-  <div className="card-body" style={{backgroundColor: "#2874A6", color:"white"}} >
+  <div className="card-body" style={{backgroundColor: "#393939", color:"white"}} >
     <h5 className="card-title">Total Amount : Rs.{this.props.Total}</h5>
-    <p className="card-text">You have created this cart on {this.props.Date}. Please check the arraving status </p>
+    <p className="card-text">You have created this cart on: <br></br> {this.props.Date}. <br></br> Please check the arraving status.</p>
   </div>
   <ul className="list-group list-group-flush">
   

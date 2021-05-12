@@ -4,6 +4,8 @@ import useToken from './components/useToken'
 import Admindashboard  from './components/Admin Components/AdminDashboard';
 import Customerdashboard  from './components/CustomerDashboard/cusomerDashboard';
 import Login from "./components/login";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 
 
