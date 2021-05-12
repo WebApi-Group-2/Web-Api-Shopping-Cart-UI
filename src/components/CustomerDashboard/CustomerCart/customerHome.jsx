@@ -180,41 +180,28 @@ class customerHome extends Component {
         return(
 
          
-         <div className='container-fluid' style={{marginTop: "20px",backgroundColor: "#99A3A4"}} >
+         <div className='container-fluid' style={{marginTop: "20px",backgroundColor: "#ffffff"}} >
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-light" >
-  
+                <ul className="nav justify-content-end" style={{backgroundColor: "#ffffff"}}>
+                    <li className="nav-item">
+                        <input className="form-control" type="search" placeholder="Search" aria-label="Search" onChange={this.handleChangeSearch}/>
+                    </li>
+                    <li className="nav-item" style={{marginLeft:"1.25rem"}}>
+                        <button className="btn btn-outline-dark my-2 my-sm-0" onClick={this.itemSearch}>Search</button>
+                    </li>
+                </ul>
+             
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-       
-      </li>
-      <li class="nav-item">
-       
-      </li>
-      <li class="nav-item dropdown">
-        
-      </li>
-      <li class="nav-item">
-        
-      </li>
-    </ul>
- 
-      <input class=" mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={this.handleChangeSearch}/>
-      <button class="btn btn-outline-success my-2 my-sm-0" onClick={this.itemSearch}>Search</button>
-    
-  </div>
-</nav>
+
 
               <Modal show={this.state.isviewmore} onHide={this.isviewmoreset}>
                <Modal.Header>
-               <img className="card-img-top" src={this.state.viewmoreImageURL} alt="Card image cap" style={{width:"200px",height:"200px"}}/>   
+               <img className="card-img-top" src={this.state.viewmoreImageURL} alt="Card image cap" style={{marginLeft:"auto",marginRight:"auto", width:"auto",height:"200px"}}/>   
                 
                  </Modal.Header>
                  <Modal.Body>
                  <div className="card" >
-                    <div className="card-header" style={{backgroundColor: "#34495E",color:"white"}} >
+                    <div className="card-header" style={{backgroundColor: "#1a1a1a",color:"white"}} >
                       <h5>{this.state.viewmoreName}</h5>
                     </div>
                        <ul className="list-group list-group-flush">
@@ -224,23 +211,23 @@ class customerHome extends Component {
                        </ul>
                      </div>
                  </Modal.Body>
-                  <Modal.Footer>
-                  <h5>{this.state.viewmorePrice}</h5>
+                  <Modal.Footer style={{marginLeft:"auto", marginRight:"auto", color:"red"}}>
+                  <h5 >{this.state.viewmorePrice}</h5>
                  </Modal.Footer>
              </Modal>
           
 
             <Modal show={this.state.iscart} onHide={this.iscartset}>
-             <Modal.Header>
-                 Cart
+             <Modal.Header style={{justifyContent:"center", fontWeight:"bold"}}>
+                 CART
              </Modal.Header>
             <Modal.Body>
 
             <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Add Your Shipping Address" onChange={this.handleChange}/><br></br>
  
                
-            <table class="table">
-  <thead class="thead-dark">
+            <table class="table" style={{backgroundColor: "#f5f5f5",color:"black"}} >
+  <thead class="thead" style={{backgroundColor: "#1a1a1a",color:"white"}} >
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Qty</th>
@@ -258,12 +245,12 @@ class customerHome extends Component {
   </tbody>
 </table><br></br>
  
- <button className='btn btn-success' onClick={this.insertOrder}>Order</button>
+ <button className='btn btn-success' style={{float:"right"}} onClick={this.insertOrder}>Order</button>
 
 
             </Modal.Body>
-            <Modal.Footer>
-             TotalAmount: Rs.{this.state.TotalAmount}
+            <Modal.Footer style={{fontWeight:"bold", fontSize:"1.1rem", color:"red", marginRight:"0.3rem"}}>
+             Total Amount: Rs.{this.state.TotalAmount}
            </Modal.Footer>
            </Modal>
             <div className='row' style={{padding: "10px"}}>
@@ -271,7 +258,7 @@ class customerHome extends Component {
                 
 
                     {this.state.items.map((items) =>(
-                    <div className = 'col-sm-3' key={items._id}> 
+                    <div className = 'col-sm-3' style={{marginTop: "0.938rem", marginBottom: "1.25rem"}} key={items._id}> 
                    <CustomerItemList key= {items.id} name={items.name} price = {items.uPrice} imageURL = {items.imageURL} description={items.description} discount={items.discount} id={items.id} handleupdate={this.handleupdate.bind(this)} viewmore={this.viewmore.bind(this)}/>
                    </div>
                    ))}      
