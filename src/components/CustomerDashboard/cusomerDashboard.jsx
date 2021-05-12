@@ -6,6 +6,8 @@ import Customcart from './CustomerCart/customercart';
 import CustomItemDetails from './CustomerCart/itemsDetails';
 import QtyEdit from './CustomerCart/itemQtyEdit';
 import CustomerHome from './CustomerCart/customerHome';
+import HeaderMiddle from './customerNavbar/header';
+import Footer from './customerNavbar/footer';
 
 class cusomerDashboard extends Component {
 
@@ -14,6 +16,7 @@ class cusomerDashboard extends Component {
         return(
            <div>
          <Navbar/>
+         <HeaderMiddle/>
 
          <Switch>
          <Route  path='/' exact component = {CustomerHome}/>
@@ -21,6 +24,7 @@ class cusomerDashboard extends Component {
           <Route  path='/cart/:id' exact  component = {CustomItemDetails}/>
           <Route  path='/cart/qtyedit/:id' exact  component = {QtyEdit}/> 
          </Switch>
+         <Footer/>
   </div> 
          
 
