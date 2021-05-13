@@ -12,6 +12,9 @@ class itemDetails extends Component {
       orderitems:[],
       shippingAddress:String = "Address",
       totalAmount:Number,
+      Status:Number,
+      StatusName:String,
+      btndisable:false,
   } 
 
     this.handleChange = this.handleChange.bind(this);
@@ -72,7 +75,7 @@ handleChange(event) {
   {this.state.orderitems.map((orders) =>(
             
             
-          <Itemcell key = {orders.id} Photo={orders.ImageURL} Name = {orders.name} Qty = {orders.qty} UnitPrice = {orders.unitPrice} Total = {orders.Total} id={orders.id}/>
+          <Itemcell key = {orders.id} Photo={orders.ImageURL} Name = {orders.name} Qty = {orders.qty} UnitPrice = {orders.unitPrice} Total = {orders.Total} id={orders.id} btndis={this.state.btndisable}/>
            
 
   ))}
@@ -87,8 +90,14 @@ handleChange(event) {
         <div className="card-footer text-muted" style={{ backgroundColor: "#f8f8f8 ", color:"white"}}>
 
           <div className='row'>
+
             <h5 style={{marginLeft:"auto", marginRight:"1.25rem", fontWeight:"bold"}}>Total Amount : {this.state.totalAmount} LKR</h5>
+
           </div>
+
+          <div className='row'>
+            <h5>Status : {this.state.StatusName}</h5>
+            </div>
        
         </div>
         </div>
@@ -111,20 +120,29 @@ handleChange(event) {
     }
     else
     {
-      const tokenString = sessionStorage.getItem('token');
-    const userToken = JSON.parse(tokenString);
 
-    const item = {Token:userToken, AddressShiping: this.state.shippingAddress};
-
-    await axios.put(`http://localhost:5000/api/order/updateaddress/${this.props.match.params.id}`, item).then(response => {
-      if (response.status == 200)
+      if(this.state.Status == 2)
       {
-        alert("successfully updated");
+        alert("This order has shipped, cannot update shipping address");
       }
-      else {
-        alert("somthing went wrong");
+      else
+      {
+        const tokenString = sessionStorage.getItem('token');
+        const userToken = JSON.parse(tokenString);
+    
+        const item = {Token:userToken, AddressShiping: this.state.shippingAddress};
+    
+        await axios.put(`http://localhost:5000/api/order/updateaddress/${this.props.match.params.id}`, item).then(response => {
+          if (response.status == 200)
+          {
+            alert("successfully updated");
+          }
+          else {
+            alert("somthing went wrong");
+          }
+      });
       }
-  });
+      
 
     }
     
@@ -159,6 +177,17 @@ handleChange(event) {
      this.setState({shippingAddress:data[0].AddressShiping});
      this.setState({orderitems:maped});
      this.setState({totalAmount:totalfinal});
+     this.setState({Status:data[0].Status});
+
+     if(data[0].Status == 1)
+     {
+      this.setState({StatusName:"Pending"});
+     }
+     else
+     {
+      this.setState({StatusName:"Shipped"});
+      this.setState({btndisable:true});
+     }
 
     
 
