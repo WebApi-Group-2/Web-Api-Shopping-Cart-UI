@@ -16,7 +16,7 @@ class itemdetailtablecell extends Component {
              <td>{this.props.Qty}</td>
              <td>Rs.{this.props.UnitPrice}</td>
              <td>Rs.{this.props.Total}</td>
-             <td><Link to = {`qtyedit/${this.props.id}`}><button className='btn btn-primary'>Edit QTY</button></Link></td>
+             <td><Link to = {this.props.btndis ?'#' :`qtyedit/${this.props.id}`}><button className='btn btn-primary'>Edit QTY</button></Link></td>
            </tr>
 
            </React.Fragment>
