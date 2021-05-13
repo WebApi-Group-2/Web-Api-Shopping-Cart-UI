@@ -29,25 +29,34 @@ class itemQtyEdit extends Component {
      render() {
 
         return(
-           <div className='container' style={{ backgroundColor: "white", marginTop: "30px" }}>
+           <div className='container-xxl' style={{ backgroundColor: "white", marginTop: "30px" }}>
             <div className="card">
-            <div className="card-header">
-              Qty Edit in Product:- <b>{this.state.itemname}</b>
-            </div>
+            <div className="card-header shadow-sm" style={{ fontWeight:"500", fontSize:"1.1rem", backgroundColor: "#dddddd", color:"black", border:"none"}}>
+        Change Quantity - <b>{this.state.itemname}</b>
+        
+        </div>
+            
+            
             <div className="card-body">
                 <div className='row'>
                     <div className='col-sm-3'>
                     <th ><img src= {this.state.imageURL} className="rounded float-left" alt="robo" style={{width:200 ,height: 200}} /></th>
                     </div>
 
-                    <div className='col-sm-9'>
-
-                    <h5 className="card-title">Edit Item Qty</h5>
-                    <input type="text" placeholder="Qty" value= {this.state.itemqty} onChange={this.handleChange}/> <br></br><br></br>
-                    <button className="btn btn-primary" onClick = {this.qtyuodate}>Update</button>
-                        
-                    </div>
+                    
                 </div>
+
+                <ul className="nav" style={{marginRight:"auto", marginLeft:"auto"}}>
+          
+                  <label style={{marginTop:"auto", marginRight:"0.625rem"}}>Update the Address</label>
+                  <li className="nav">
+                      <input className="form-control" type="text" style={{float:"right", marginTop:"0.625rem"}} placeholder="Qty" value= {this.state.itemqty} onChange={this.handleChange}/> 
+                  </li>
+                  <li className="nav">
+                    <button className="btn btn-dark" style={{marginLeft:"0.625rem", marginTop:"auto"}} onClick = {this.qtyuodate}>Update</button>
+                  </li>
+                  
+                </ul>
               
             </div>
           </div>
