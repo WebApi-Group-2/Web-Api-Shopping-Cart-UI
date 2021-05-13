@@ -22,14 +22,16 @@ class customercart extends Component {
         <div className='row'>
           {this.state.userOrders.map((orders) =>(
             
-            <div key = {orders.id} className='col-sm-3'>
+
+            <div key = {orders.id} className='col-sm-3' style={{marginBottom:"1.25rem"}}>
           <Customercartitems key = {orders.id} Total={orders.TotalAmount} Date = {orders.date} Status = {orders.Status} orderId = {orders.id} status = {orders.Status} orderNo = {orders.OrderNo}/>
+
              </div>   
           ))};
         </div>
      
   </div>
-  <div className="card-footer text-muted">
+  <div className="card-footer text-muted" style={{backgroundColor:"white"}}>
     
   </div>
 </div> 

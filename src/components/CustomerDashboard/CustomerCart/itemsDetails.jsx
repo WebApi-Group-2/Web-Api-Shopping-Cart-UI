@@ -37,30 +37,29 @@ handleChange(event) {
 
     return (
 
-      <div className='container' style={{ backgroundColor: "white", marginTop: "10px" }}>
+      <div className="container-xxl" style={{ backgroundColor: "white", marginTop: "10px" }}>
 
         <div className="card text-center">
-        <div className="card-header">
-       <h4>Update Shipping Address:</h4>
-
+        <div className="card-header shadow-sm" style={{ fontWeight:"bold", fontSize:"1.1rem", backgroundColor: "#dddddd", color:"black", border:"none"}}>
+        Shipping Address
         <div className= 'row'>
-
-         
-          
-
-          <input className="form-control" type="text" value={this.state.shippingAddress} placeholder="Shipping Address" onChange={this.handleChange}/> <br></br><br></br>
-          <button className = "btn btn-warning" onClick = {this.addressuodate}>Update</button>
-         
-          
-         
-          
         </div>
-         
         </div>
-        <div className="card-body" style={{ backgroundColor: "#EDBB99", marginTop: "10px" }}>
+        <ul className="nav" style={{marginRight:"1.25rem", marginLeft:"auto"}}>
+          
+          <label style={{marginTop:"auto", marginRight:"0.625rem"}}>Update the Address</label>
+          <li className="nav">
+              <input className="form-control" type="text" style={{float:"right", marginTop:"0.625rem"}} value={this.state.shippingAddress} placeholder="Shipping Address" onChange={this.handleChange}/>
+          </li>
+          <li className="nav">
+            <button className="btn btn-dark" style={{marginLeft:"0.625rem", marginTop:"auto"}} onClick = {this.addressuodate}>Update</button>
+          </li>
+          
+        </ul>
+        <div className="card-body" style={{ backgroundColor: "white", marginTop: "0.125rem" }}>
 
-        <table className="table">
-  <thead className="thead-dark">
+        <table className="table align-middle table-striped">
+  <thead className="table-dark">
     <tr>
       
       <th scope="col">Photo</th>
@@ -88,12 +87,12 @@ handleChange(event) {
 
            
         </div>
-        <div className="card-footer text-muted" style={{ backgroundColor: "#E5E7E9 ", color:"white"}}>
+        <div className="card-footer text-muted" style={{ backgroundColor: "#f8f8f8 ", color:"white"}}>
 
           <div className='row'>
-            <h5>Total Amount : Rs. {this.state.totalAmount}</h5> 
-           
-            
+
+            <h5 style={{marginLeft:"auto", marginRight:"1.25rem", fontWeight:"bold"}}>Total Amount : {this.state.totalAmount} LKR</h5>
+
           </div>
 
           <div className='row'>
