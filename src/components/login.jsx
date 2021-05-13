@@ -44,6 +44,11 @@ function Login ({setToken}) {
 
   const [username,setUserName] = useState();
   const [password,setPassword] = useState();
+  const [name,setName] = useState();
+  const [email,setEmail] = useState();
+  const [regpassword,setRegPassword] = useState();
+
+  
 
  const handleSubmit = async e => {
    e.preventDefault();
@@ -56,6 +61,17 @@ function Login ({setToken}) {
  }
 
 
+ const handleSubmitRegister = async e => {
+  e.preventDefault();
+ 
+  const cre = { uid:1234, name: name,email:email,password:regpassword,IsAdmin:0};
+  
+  postuserRegister(cre);
+  // postuser(cre);
+
+}
+
+
  async function postuser(creden){
 
   const respon = await axios.post('http://localhost:5000/api/auth/login',creden);
@@ -63,6 +79,23 @@ function Login ({setToken}) {
   sessionStorage.setItem('UserType',JSON.stringify(respon.data.IsAdmin));
        
   setToken(respon.data.Token);
+
+}
+
+async function postuserRegister(creden){
+
+  const respon = await axios.post('http://localhost:5000/api/auth/register',creden);
+
+  // sessionStorage.setItem('UserType',JSON.stringify(respon.data.IsAdmin));
+       
+  // setToken(respon.data.Token);
+// console.log(respon.status)
+
+  if(respon.status === 200){
+    alert("sucssesfully registered")
+  }else{
+    alert("registration failed")
+  }
 
 }
 
@@ -80,6 +113,8 @@ function Login ({setToken}) {
               <input className="form-control form-control-sm" style={{marginRight: "10px"}} type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} aria-label="Password" required></input>
               <button className="btn btn-sm btn-dark" type="submit">Login</button>
             </form>
+
+
           </div>
        </nav>
 
@@ -88,20 +123,22 @@ function Login ({setToken}) {
           
           <div className="header" style={{color:"#ffffff", fontWeight:"400"}}>Create New Account</div>
        <div className="nav" style={{marginleft:"auto",marginRight:"60px"}}>
+
+       <form className="d-flex" onSubmit = {handleSubmitRegister}>
                   <li className="nav">
-                      <input className="form-control" type="text" style={{marginTop:"3px",marginLeft:"0.625rem"}} placeholder="Name"/> 
+                      <input className="form-control" type="text" onChange={e => setName(e.target.value)} style={{marginTop:"3px",marginLeft:"0.625rem"}} placeholder="Name"/> 
                   </li>
                   <li className="nav">
-                      <input className="form-control" type="email" style={{marginTop:"3px",marginLeft:"0.625rem"}} placeholder="Email"/> 
+                      <input className="form-control" type="email" onChange={e => setEmail(e.target.value)} style={{marginTop:"3px",marginLeft:"0.625rem"}} placeholder="Email"/> 
                   </li>
                   <li className="nav">
-                      <input className="form-control" type="password" style={{marginTop:"3px",marginLeft:"0.625rem"}} placeholder="Password"/> 
+                      <input className="form-control" type="password" onChange={e => setRegPassword(e.target.value)} style={{marginTop:"3px",marginLeft:"0.625rem"}} placeholder="Password"/> 
                   </li>
                   <li className="nav">
                     <button className="btn btn-dark" type="submit" style={{marginLeft:"0.625rem", marginRight:"0.625rem"}}>SignUp</button>
                   </li>
                   
-                                      
+              </form>                        
                       <GoogleLogin
                         clientId="212464559860-30tq5g85gv1pjfhkd172iagcuud1a8e6.apps.googleusercontent.com"
                         
