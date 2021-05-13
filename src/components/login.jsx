@@ -89,9 +89,9 @@ async function postuserRegister(creden){
   // sessionStorage.setItem('UserType',JSON.stringify(respon.data.IsAdmin));
        
   // setToken(respon.data.Token);
-console.log(respon)
+// console.log(respon.status)
 
-  if(respon.data.status == 200){
+  if(respon.status === 200){
     alert("sucssesfully registered")
   }else{
     alert("registration failed")
