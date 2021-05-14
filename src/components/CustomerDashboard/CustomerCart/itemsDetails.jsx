@@ -12,6 +12,9 @@ class itemDetails extends Component {
       orderitems:[],
       shippingAddress:String = "Address",
       totalAmount:Number,
+      Status:Number,
+      StatusName:String,
+      btndisable:false,
   } 
 
     this.handleChange = this.handleChange.bind(this);
@@ -34,30 +37,29 @@ handleChange(event) {
 
     return (
 
-      <div className='container' style={{ backgroundColor: "white", marginTop: "10px" }}>
+      <div className="container-xxl" style={{ backgroundColor: "white", marginTop: "10px" ,transform:"none"}}>
 
-        <div className="card text-center">
-        <div className="card-header">
-       <h4>Update Shipping Address:</h4>
-
+        <div className="card text-center" style={{transform:"none"}}>
+        <div className="card-header shadow-sm" style={{ fontWeight:"bold", fontSize:"1.1rem", backgroundColor: "#dddddd", color:"black", border:"none", transform:"none"}}>
+        Shipping Address
         <div className= 'row'>
-
-         
-          
-
-          <input className="form-control" type="text" value={this.state.shippingAddress} placeholder="Shipping Address" onChange={this.handleChange}/> <br></br><br></br>
-          <button className = "btn btn-warning" onClick = {this.addressuodate}>Update</button>
-         
-          
-         
-          
         </div>
-         
         </div>
-        <div className="card-body" style={{ backgroundColor: "#EDBB99", marginTop: "10px" }}>
+        <ul className="nav" style={{marginRight:"1.25rem", marginLeft:"auto"}}>
+          
+          <label style={{marginTop:"auto", marginRight:"0.625rem"}}>Update the Address</label>
+          <li className="nav">
+              <input className="form-control" type="text" style={{float:"right", marginTop:"0.625rem"}} value={this.state.shippingAddress} placeholder="Shipping Address" onChange={this.handleChange}/>
+          </li>
+          <li className="nav">
+            <button className="btn btn-dark" style={{marginLeft:"0.625rem", marginTop:"auto"}} onClick = {this.addressuodate}>Update</button>
+          </li>
+          
+        </ul>
+        <div className="card-body" style={{ backgroundColor: "white", marginTop: "0.125rem" }}>
 
-        <table className="table">
-  <thead className="thead-dark">
+        <table className="table align-middle table-striped">
+  <thead className="table-dark">
     <tr>
       
       <th scope="col">Photo</th>
@@ -73,7 +75,7 @@ handleChange(event) {
   {this.state.orderitems.map((orders) =>(
             
             
-          <Itemcell key = {orders.id} Photo={orders.ImageURL} Name = {orders.name} Qty = {orders.qty} UnitPrice = {orders.unitPrice} Total = {orders.Total} id={orders.id}/>
+          <Itemcell key = {orders.id} Photo={orders.ImageURL} Name = {orders.name} Qty = {orders.qty} UnitPrice = {orders.unitPrice} Total = {orders.Total} id={orders.id} btndis={this.state.btndisable}/>
            
 
   ))}
@@ -85,11 +87,17 @@ handleChange(event) {
 
            
         </div>
-        <div className="card-footer text-muted" style={{ backgroundColor: "#E5E7E9 ", color:"white"}}>
+        <div className="card-footer text-muted" style={{ backgroundColor: "#f8f8f8 ", color:"white"}}>
 
           <div className='row'>
-            <h5>Total Amount : Rs. {this.state.totalAmount}</h5>
+
+            <h5 style={{marginLeft:"auto", marginRight:"1.25rem", fontWeight:"bold"}}>Total Amount : {this.state.totalAmount} LKR</h5>
+
           </div>
+
+          <div className='row'>
+            <h5>Status : {this.state.StatusName}</h5>
+            </div>
        
         </div>
         </div>
@@ -112,20 +120,29 @@ handleChange(event) {
     }
     else
     {
-      const tokenString = sessionStorage.getItem('token');
-    const userToken = JSON.parse(tokenString);
 
-    const item = {Token:userToken, AddressShiping: this.state.shippingAddress};
-
-    await axios.put(`http://localhost:5000/api/order/updateaddress/${this.props.match.params.id}`, item).then(response => {
-      if (response.status == 200)
+      if(this.state.Status == 2)
       {
-        alert("successfully updated");
+        alert("This order has shipped, cannot update shipping address");
       }
-      else {
-        alert("somthing went wrong");
+      else
+      {
+        const tokenString = sessionStorage.getItem('token');
+        const userToken = JSON.parse(tokenString);
+    
+        const item = {Token:userToken, AddressShiping: this.state.shippingAddress};
+    
+        await axios.put(`http://localhost:5000/api/order/updateaddress/${this.props.match.params.id}`, item).then(response => {
+          if (response.status == 200)
+          {
+            alert("successfully updated");
+          }
+          else {
+            alert("somthing went wrong");
+          }
+      });
       }
-  });
+      
 
     }
     
@@ -160,6 +177,17 @@ handleChange(event) {
      this.setState({shippingAddress:data[0].AddressShiping});
      this.setState({orderitems:maped});
      this.setState({totalAmount:totalfinal});
+     this.setState({Status:data[0].Status});
+
+     if(data[0].Status == 1)
+     {
+      this.setState({StatusName:"Pending"});
+     }
+     else
+     {
+      this.setState({StatusName:"Shipped"});
+      this.setState({btndisable:true});
+     }
 
     
 
