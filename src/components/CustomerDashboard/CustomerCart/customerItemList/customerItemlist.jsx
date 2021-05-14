@@ -13,7 +13,7 @@ class customerItemlist extends Component {
 
     return(
            
-      <div className="card shadow-sm" style={{width: "18rem" }} key={this.props.id}>
+      <div className="card shadow-sm" style={{width: "18rem" ,transform:"none" }} key={this.props.id}>
         <img className="card-img-top" src={this.props.imageURL} alt="Card image cap"/>
           <div className="card-body" style={{padding: ".20rem 1.25rem"}}>
             <h5 className="card-title" style={{marginBottom: "5px"}}>{this.props.name}</h5>

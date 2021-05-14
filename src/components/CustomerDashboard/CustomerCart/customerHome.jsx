@@ -181,7 +181,7 @@ class customerHome extends Component {
         return(
 
          
-         <div className='container-fluid' style={{marginTop: "20px",backgroundColor: "#ffffff"}} >
+         <div className='container-fluid' style={{marginTop: "20px",backgroundColor: "#ffffff" , transform:"none"}} >
 
                 <ul className="nav justify-content-end" style={{backgroundColor: "#ffffff"}}>
                     <li className="nav-item">
@@ -281,7 +281,7 @@ class customerHome extends Component {
             }
             else
             {
-                //log token session to variable
+                //get log token session to a variable
                 const tokenString = sessionStorage.getItem('token');
                 //convert the token to jason format
                 const userToken = JSON.parse(tokenString);
