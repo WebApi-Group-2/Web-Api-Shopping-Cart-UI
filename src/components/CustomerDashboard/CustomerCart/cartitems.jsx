@@ -10,7 +10,7 @@ class cartitems extends Component {
 
         return(
 
-            <div className="card shadow-sm" style={{borderBottom:"none"}}>
+            <div className="card shadow-sm" style={{borderBottom:"none", transform:"none"}}>
       
         
    

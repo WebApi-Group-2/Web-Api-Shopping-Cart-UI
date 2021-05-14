@@ -29,9 +29,9 @@ class itemQtyEdit extends Component {
      render() {
 
         return(
-           <div className='container-xxl' style={{ backgroundColor: "white", marginTop: "30px" }}>
-            <div className="card">
-            <div className="card-header shadow-sm" style={{ fontWeight:"500", fontSize:"1.1rem", backgroundColor: "#dddddd", color:"black", border:"none"}}>
+           <div className='container-xxl' style={{ backgroundColor: "white", marginTop: "30px", transform:"none" }}>
+            <div className="card" style={{transform:"none"}}>
+            <div className="card-header shadow-sm" style={{transform:"none", fontWeight:"500", fontSize:"1.1rem", backgroundColor: "#dddddd", color:"black", border:"none"}}>
         Change Quantity - <b>{this.state.itemname}</b>
         
         </div>

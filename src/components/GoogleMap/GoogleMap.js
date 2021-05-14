@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
-import img1 from "./ebee.png";
+
 
 
 export class MapContainer extends Component {
-  
+
   state = {
     showingInfoWindow: false,
     activeMarker: {},
@@ -45,7 +45,7 @@ export class MapContainer extends Component {
         minZoom={6}
         onClick={this.onMapClicked}>
         <Marker 
-        icon={{img1}}
+        
           position={{
             lat: this.state.mapCenter.lat,
             lng: this.state.mapCenter.lng
@@ -53,21 +53,21 @@ export class MapContainer extends Component {
         />
 
         <Marker 
-          image={img1}
+          
           position={{
             lat: 7.3360,
             lng: 80.627365
           }} 
         />
         <Marker 
-          image={img1}
+          
           position={{
             lat: 7.286606,
             lng: 80.565659
           }} 
         />
         <Marker 
-          image={img1}
+          
           position={{
             lat: 7.300395,
             lng: 80.627480
@@ -75,7 +75,7 @@ export class MapContainer extends Component {
         />
 
         <Marker 
-          image={img1}
+          
           position={{
             lat: 7.277835,
             lng: 80.617981
