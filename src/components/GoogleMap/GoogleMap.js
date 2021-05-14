@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-
-
 export class MapContainer extends Component {
 
   state = {
@@ -16,6 +14,7 @@ export class MapContainer extends Component {
     }
   };
  
+
   onMarkerClick = (props, marker, e) => this.setState ({
 
       selectedPlace: props,
@@ -24,6 +23,7 @@ export class MapContainer extends Component {
 
     });
  
+    
   onMapClicked = (props) => {
     if (this.state.showingInfoWindow) 
       {
@@ -36,7 +36,7 @@ export class MapContainer extends Component {
  
   render() {
     return (
-      <div className="contaoner-fluid" style={{height:"20%"}}>
+      
       <Map google={this.props.google}
         initialCenter={{
           lat: this.state.mapCenter.lat,
@@ -83,7 +83,7 @@ export class MapContainer extends Component {
         />
 
       </Map>
-      </div>
+      
     )
   }
 }
