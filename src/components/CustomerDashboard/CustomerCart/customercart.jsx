@@ -13,17 +13,17 @@ class customercart extends Component {
 
   render() {
     return (
-    <div className="container-xxl" style={{ backgroundColor: "white", marginTop: "10px" }}>
-        <div className="card text-center">
-          <div className="card-header shadow-sm" style={{ fontWeight:"bold", fontSize:"1.1rem", backgroundColor: "#dddddd", color:"black", border:"none"}}>
+    <div className="container-xxl" style={{ backgroundColor: "white", marginTop: "10px", transform:"none" }}>
+        <div className="card text-center" style={{transform:"none"}}>
+          <div className="card-header shadow-sm" style={{transform:"none", fontWeight:"bold", fontSize:"1.1rem", backgroundColor: "#dddddd", color:"black", border:"none"}}>
             Your Shopping Cart
           </div>
-        <div className="card-body" style={{ backgroundColor: "white", color:"white" }}>
+        <div className="card-body" style={{ transform:"none",backgroundColor: "white", color:"white" }}>
         <div className='row'>
           {this.state.userOrders.map((orders) =>(
             
 
-            <div key = {orders.id} className='col-sm-3' style={{marginBottom:"1.25rem"}}>
+            <div key = {orders.id} className='col-sm-3' style={{marginBottom:"1.25rem", transform:"none"}}>
           <Customercartitems key = {orders.id} Total={orders.TotalAmount} Date = {orders.date} Status = {orders.Status} orderId = {orders.id} status = {orders.Status} orderNo = {orders.OrderNo}/>
 
              </div>   
