@@ -48,7 +48,7 @@ class itemQtyEdit extends Component {
 
                 <ul className="nav" style={{marginRight:"auto", marginLeft:"auto"}}>
           
-                  <label style={{marginTop:"auto", marginRight:"0.625rem"}}>Update the Address</label>
+                  <label style={{marginTop:"auto", marginRight:"0.625rem"}}>Update the Qty</label>
                   <li className="nav">
                       <input className="form-control" type="text" style={{float:"right", marginTop:"0.625rem"}} placeholder="Qty" value= {this.state.itemqty} onChange={this.handleChange}/> 
                   </li>
