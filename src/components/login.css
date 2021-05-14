@@ -1,0 +1,25 @@
+button:focus {
+    outline: 0;
+}
+
+.navbar .dropdown-menu .form-control {
+    width: 200px;
+}
+
+.btnFacebook { 
+  width: 165px;
+  height:42px;  
+  border-radius: 4px;
+  background: #3b5998;
+  color:white;
+  border:0px transparent;  
+  text-align: center;
+  margin-top: 1px;
+  margin-left: 10px;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.btnFacebook:hover {
+  background: #3b5998;
+  opacity: 0.6;
+}

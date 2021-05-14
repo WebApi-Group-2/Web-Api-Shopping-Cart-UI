@@ -10,21 +10,21 @@ class cartitems extends Component {
 
         return(
 
-            <div className="card">
+            <div className="card shadow-sm" style={{borderBottom:"none"}}>
       
         
    
-  <div className="card-body" style={{backgroundColor: "#2874A6", color:"white"}} >
-    <h5 className="card-title">Total Amount : Rs.{this.props.Total}</h5>
-    <p className="card-text">You have created this cart on {this.props.Date}. Please check the arraving status </p>
+
+  <div className="card-body " style={{backgroundColor: "#ffffff", color:"#000000"}} >
+    <h5 className="card-title" style={{marginBottom:"0.1rem"}}>Total Amount  OrderNo: {this.props.orderNo} </h5>
+    <h5 className="card-title" style={{color:"#ff005c"}}> {this.props.Total} LKR </h5>
+    <p className="card-text" style={{fontSize:"0.85rem"}}>You have created this cart on: Status: {this.props.status} <br></br> {this.props.Date}. <br></br> Please check the arraving status.</p>
   </div>
   <ul className="list-group list-group-flush">
-  
-    
+
   </ul>
   <div className="card-body">
-    <Link to = {`cart/${this.props.orderId}`} ><button className ='button btn-success'>View More</button></Link>
-   
+    <Link to = {`cart/${this.props.orderId}`} ><button className ="button btn-sm btn-dark" style={{border:"none"}}>View More</button></Link>
   </div>
     </div>
 
