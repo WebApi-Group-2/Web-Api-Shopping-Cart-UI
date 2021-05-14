@@ -9,6 +9,9 @@ import Footer from './CustomerDashboard/customerNavbar/footer';
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 
+import GoogleMap from './GoogleMap/GoogleMap';
+
+
 
 
 function Login ({setToken}) {
@@ -84,18 +87,18 @@ function Login ({setToken}) {
        </nav>
 
       <HeaderMiddle/>
-        <div class="container-xxl" style={{backgroundColor:"#1877f2", height:"80px", display:"flex", alignItems:"center", justifyContent:"center"}}>
+        <div class="container-xxl" style={{backgroundColor:"#1877f2", height:"8rem", display:"flex", alignItems:"center", justifyContent:"center"}}>
           
           <div className="header" style={{color:"#ffffff", fontWeight:"400"}}>Create New Account</div>
-       <div className="nav" style={{marginleft:"auto",marginRight:"60px"}}>
+       <div className="nav" style={{marginleft:"auto",marginRight:"3.75rem"}}>
                   <li className="nav">
-                      <input className="form-control" type="text" style={{marginTop:"3px",marginLeft:"0.625rem"}} placeholder="Name"/> 
+                      <input className="form-control" type="text" style={{marginTop:"0.188rem",marginLeft:"0.625rem"}} placeholder="Name"/> 
                   </li>
                   <li className="nav">
-                      <input className="form-control" type="email" style={{marginTop:"3px",marginLeft:"0.625rem"}} placeholder="Email"/> 
+                      <input className="form-control" type="email" style={{marginTop:"0.188rem",marginLeft:"0.625rem"}} placeholder="Email"/> 
                   </li>
                   <li className="nav">
-                      <input className="form-control" type="password" style={{marginTop:"3px",marginLeft:"0.625rem"}} placeholder="Password"/> 
+                      <input className="form-control" type="password" style={{marginTop:"0.188rem",marginLeft:"0.625rem"}} placeholder="Password"/> 
                   </li>
                   <li className="nav">
                     <button className="btn btn-dark" type="submit" style={{marginLeft:"0.625rem", marginRight:"0.625rem"}}>SignUp</button>
@@ -114,7 +117,7 @@ function Login ({setToken}) {
                       <FacebookLogin
                         appId="256103489627680"
                         buttonText="Facebook"
-                        autoLoad={true}
+                        autoLoad={false}
                         cssClass="btnFacebook"
                         
                         callback={responseFacebook} />
@@ -124,6 +127,8 @@ function Login ({setToken}) {
                 </div>
 </div>
         
+      <GoogleMap />
+      
 
        <Footer/>
        </div>

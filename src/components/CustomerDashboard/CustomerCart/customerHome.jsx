@@ -176,6 +176,7 @@ class customerHome extends Component {
      render() {
 
         
+        
 
         return(
 
@@ -271,39 +272,38 @@ class customerHome extends Component {
          
      }
 
-     //insert order
-
-
-       insertOrder = async()=> {
-       
-        if(this.state.shippingAddress == "")
-        {
-            alert("please add your shipping Address");
-        }
-        else
-        {
-            const tokenString = sessionStorage.getItem('token');
-            const userToken = JSON.parse(tokenString);
-            
-            const request = {TotalAmount:this.state.TotalAmount, AddressShiping: this.state.shippingAddress,itemdetails:this.state.cartItems,Token:userToken};
-            const respon = await axios.post('http://localhost:5000/api/order/add/',request);
-
-            if (respon.status == 200)
-            {
-                alert("order successfully added");
-                this.setState({cartItems:[]});
-                this.setState({iscart:false});
-                this.setState({TotalAmount:''});
-                this.setState({shippingAddress:''});
-            }
-
-            // console.log(request);
-            
-
-        }
-       
+        //insert order
+        insertOrder = async()=> {
         
-     }
+            if(this.state.shippingAddress == "")
+            {
+                alert("please add your shipping Address");
+            }
+            else
+            {
+                //log token session to variable
+                const tokenString = sessionStorage.getItem('token');
+                //convert the token to jason format
+                const userToken = JSON.parse(tokenString);
+
+                //sending data to post method
+                const request = {TotalAmount:this.state.TotalAmount, AddressShiping: this.state.shippingAddress,itemdetails:this.state.cartItems,Token:userToken};
+                //call the api method
+                const respon = await axios.post('http://localhost:5000/api/order/add/',request);
+
+                //if status 200 data insertion succesfully
+                //clear the varibles add new order
+                if (respon.status == 200)
+                {
+                    alert("order successfully added");
+                    this.setState({cartItems:[]});
+                    this.setState({iscart:false});
+                    this.setState({TotalAmount:''});
+                    this.setState({shippingAddress:''});
+                }
+                // console.log(request);
+            }
+        }
      
 
      iscartset() {
