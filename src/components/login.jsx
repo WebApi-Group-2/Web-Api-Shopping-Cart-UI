@@ -6,9 +6,9 @@ import "./login.css"
 import logo from './CustomerDashboard/customerNavbar/logo3.png';
 import HeaderMiddle from './CustomerDashboard/customerNavbar/header';
 import Footer from './CustomerDashboard/customerNavbar/footer';
+
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
-
 import GoogleMap from './GoogleMap/GoogleMap';
 
 
@@ -16,7 +16,7 @@ import GoogleMap from './GoogleMap/GoogleMap';
 
 function Login ({setToken}) {
 
-  const facebooklogin = (response) => {
+  const responseFacebook = (response) => {
     console.log(response);
     axios({
       method: "POST",
@@ -38,11 +38,7 @@ function Login ({setToken}) {
     })
   }
   const responseErrorGoogle = (response) => {
-    
-  }
-
-   const responseFacebook = (response) => {
-    
+    console.log("Google login failure", response);
   }
 
   const [username,setUserName] = useState();
