@@ -37,10 +37,10 @@ handleChange(event) {
 
     return (
 
-      <div className="container-xxl" style={{ backgroundColor: "white", marginTop: "10px" }}>
+      <div className="container-xxl" style={{ backgroundColor: "white", marginTop: "10px" ,transform:"none"}}>
 
-        <div className="card text-center">
-        <div className="card-header shadow-sm" style={{ fontWeight:"bold", fontSize:"1.1rem", backgroundColor: "#dddddd", color:"black", border:"none"}}>
+        <div className="card text-center" style={{transform:"none"}}>
+        <div className="card-header shadow-sm" style={{ fontWeight:"bold", fontSize:"1.1rem", backgroundColor: "#dddddd", color:"black", border:"none", transform:"none"}}>
         Shipping Address
         <div className= 'row'>
         </div>
