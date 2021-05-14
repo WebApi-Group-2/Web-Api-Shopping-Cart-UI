@@ -53,7 +53,7 @@ const api = axios.create({
 function App() {
   var columns = [
     { title: "id", field: "_id", hidden: true },
-    
+
     {
       title: "Item Code",
       field: "itemId",
@@ -120,7 +120,7 @@ function App() {
       });
   }, []);
 
-  const handleRowUpdate = (newData, oldData, resolve) => {
+  const UpdateRow = (newData, oldData, resolve) => {
     //validation
     let errorList = [];
     if (newData.itemId === "") {
@@ -163,7 +163,7 @@ function App() {
     }
   };
 
-  const handleRowAdd = (newData, resolve) => {
+  const AddRow = (newData, resolve) => {
     //validation
     let errorList = [];
     if (newData.name === undefined) {
@@ -215,7 +215,7 @@ function App() {
     }
   };
 
-  const handleRowDelete = (oldData, resolve) => {
+  const DeleteRow = (oldData, resolve) => {
     api
       .delete("/" + oldData._id)
       .then((res) => {
@@ -255,15 +255,15 @@ function App() {
               editable={{
                 onRowUpdate: (newData, oldData) =>
                   new Promise((resolve) => {
-                    handleRowUpdate(newData, oldData, resolve);
+                    UpdateRow(newData, oldData, resolve);
                   }),
                 onRowAdd: (newData) =>
                   new Promise((resolve) => {
-                    handleRowAdd(newData, resolve);
+                    AddRow(newData, resolve);
                   }),
                 onRowDelete: (oldData) =>
                   new Promise((resolve) => {
-                    handleRowDelete(oldData, resolve);
+                    DeleteRow(oldData, resolve);
                   }),
               }}
             />
