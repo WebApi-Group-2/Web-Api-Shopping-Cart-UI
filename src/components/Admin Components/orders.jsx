@@ -125,7 +125,7 @@ function App() {
       });
   }, []);
 
-  const handleRowUpdate = (newData, oldData, resolve) => {
+  const UpdateRow = (newData, oldData, resolve) => {
     //validation
     let errorList = [];
     if (newData.Status === "") {
@@ -184,7 +184,7 @@ function App() {
               editable={{
                 onRowUpdate: (newData, oldData) =>
                   new Promise((resolve) => {
-                    handleRowUpdate(newData, oldData, resolve);
+                    UpdateRow(newData, oldData, resolve);
                   }),
                 
               }}
