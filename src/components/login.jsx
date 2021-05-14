@@ -9,6 +9,9 @@ import Footer from './CustomerDashboard/customerNavbar/footer';
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 
+import GoogleMap from './GoogleMap/GoogleMap';
+
+
 
 
 function Login ({setToken}) {
@@ -119,20 +122,22 @@ async function postuserRegister(creden){
        </nav>
 
       <HeaderMiddle/>
-        <div class="container-xxl" style={{backgroundColor:"#1877f2", height:"80px", display:"flex", alignItems:"center", justifyContent:"center"}}>
+        <div class="container-xxl" style={{backgroundColor:"#1877f2", height:"8rem", display:"flex", alignItems:"center", justifyContent:"center"}}>
           
           <div className="header" style={{color:"#ffffff", fontWeight:"400"}}>Create New Account</div>
-       <div className="nav" style={{marginleft:"auto",marginRight:"60px"}}>
 
-       <form className="d-flex" onSubmit = {handleSubmitRegister}>
+       <div className="nav" style={{marginleft:"auto",marginRight:"3.75rem"}}>
+         <form className="d-flex" onSubmit = {handleSubmitRegister}>
                   <li className="nav">
-                      <input className="form-control" type="text" onChange={e => setName(e.target.value)} style={{marginTop:"3px",marginLeft:"0.625rem"}} placeholder="Name"/> 
+                      <input className="form-control" type="text" onChange={e => setName(e.target.value)} style={{marginTop:"0.188rem",marginLeft:"0.625rem"}} placeholder="Name"/> 
                   </li>
                   <li className="nav">
-                      <input className="form-control" type="email" onChange={e => setEmail(e.target.value)} style={{marginTop:"3px",marginLeft:"0.625rem"}} placeholder="Email"/> 
+                      <input className="form-control" type="email" onChange={e => setEmail(e.target.value)} style={{marginTop:"0.188rem",marginLeft:"0.625rem"}} placeholder="Email"/> 
                   </li>
                   <li className="nav">
-                      <input className="form-control" type="password" onChange={e => setRegPassword(e.target.value)} style={{marginTop:"3px",marginLeft:"0.625rem"}} placeholder="Password"/> 
+                      <input className="form-control" type="password" onChange={e => setRegPassword(e.target.value)} style={{marginTop:"0.188rem",marginLeft:"0.625rem"}} placeholder="Password"/> 
+
+       
                   </li>
                   <li className="nav">
                     <button className="btn btn-dark" type="submit" style={{marginLeft:"0.625rem", marginRight:"0.625rem"}}>SignUp</button>
@@ -151,7 +156,7 @@ async function postuserRegister(creden){
                       <FacebookLogin
                         appId="256103489627680"
                         buttonText="Facebook"
-                        autoLoad={true}
+                        autoLoad={false}
                         cssClass="btnFacebook"
                         
                         callback={responseFacebook} />
@@ -161,6 +166,8 @@ async function postuserRegister(creden){
                 </div>
 </div>
         
+      <GoogleMap />
+      
 
        <Footer/>
        </div>
